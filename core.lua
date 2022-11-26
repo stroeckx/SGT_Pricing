@@ -2,7 +2,7 @@ SGTPricing = LibStub("AceAddon-3.0"):NewAddon("SGTPricing", "AceConsole-3.0", "A
 SGTPricing.L = LibStub("AceLocale-3.0"):GetLocale("SGTPricing");
 
 --Variables start
-local SGTPricingVersion = "v1.0";
+local SGTPricingVersion = "v1.0.1";
 local priceFrame = nil;
 --Variables end
 
