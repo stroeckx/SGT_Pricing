@@ -2,13 +2,19 @@ SGTPricing = LibStub("AceAddon-3.0"):NewAddon("SGTPricing", "AceConsole-3.0", "A
 SGTPricing.L = LibStub("AceLocale-3.0"):GetLocale("SGTPricing");
 
 --Variables start
-local SGTPricingVersion = "v1.0.1";
+SGTPricing.majorVersion = 1;
+SGTPricing.subVersion = 0;
+SGTPricing.minorVersion = 2;
 local priceFrame = nil;
 --Variables end
 
 function SGTPricing:OnInitialize()
 	SGTPricing:RegisterChatCommand("tstp", "tst");
-    SGTCore:AddTabWithFrame("SGTPricing", SGTPricing.L["Pricing"], SGTPricing.L["Pricing"], SGTPricingVersion, SGTPricing.OnCraftCostFrameCreated);
+    SGTCore:AddTabWithFrame("SGTPricing", SGTPricing.L["Pricing"], SGTPricing.L["Pricing"], SGTPricing:GetVersionString(), SGTPricing.OnCraftCostFrameCreated);
+end
+
+function SGTPricing:GetVersionString()
+    return tostring(SGTPricing.majorVersion) .. "." .. tostring(SGTPricing.subVersion) .. "." .. tostring(SGTPricing.minorVersion);
 end
 
 function SGTPricing:tst()
@@ -22,5 +28,10 @@ end
 
 function SGTPricing:GetCurrentAuctionPrice(itemID)
     local tsmPrice = TSM_API.GetCustomPriceValue("DBMinBuyout", "i:" .. itemID);
+    return tsmPrice;
+end
+
+function SGTPricing:GetShortMarketPrice(itemID)
+    local tsmPrice = TSM_API.GetCustomPriceValue("DBRecent", "i:" .. itemID);
     return tsmPrice;
 end
