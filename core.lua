@@ -4,7 +4,7 @@ SGTPricing.L = LibStub("AceLocale-3.0"):GetLocale("SGTPricing");
 --Variables start
 SGTPricing.majorVersion = 1;
 SGTPricing.subVersion = 0;
-SGTPricing.minorVersion = 2;
+SGTPricing.minorVersion = 3;
 local priceFrame = nil;
 --Variables end
 
@@ -27,11 +27,17 @@ function SGTPricing:OnCraftCostFrameCreated()
 end
 
 function SGTPricing:GetCurrentAuctionPrice(itemID)
-    local tsmPrice = TSM_API.GetCustomPriceValue("DBMinBuyout", "i:" .. itemID);
+    if itemID == nil then
+        return 0;
+    end
+    local tsmPrice = TSM_API.GetCustomPriceValue("DBMinBuyout", "i:" .. tostring(itemID));
     return tsmPrice;
 end
 
 function SGTPricing:GetShortMarketPrice(itemID)
-    local tsmPrice = TSM_API.GetCustomPriceValue("DBRecent", "i:" .. itemID);
+    if itemID == nil then
+        return 0;
+    end
+    local tsmPrice = TSM_API.GetCustomPriceValue("DBRecent", "i:" .. tostring(itemID));
     return tsmPrice;
 end
