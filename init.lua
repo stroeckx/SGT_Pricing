@@ -1,0 +1,1 @@
+SGTPricing = LibStub("AceAddon-3.0"):NewAddon("SGTPricing", "AceConsole-3.0", "AceEvent-3.0");
