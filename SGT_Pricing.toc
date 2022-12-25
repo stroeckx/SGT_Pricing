@@ -2,7 +2,7 @@
 ## Title: SGT Pricing
 ## Notes: Provides Pricing sources to the rest 
 ## Author: Stroeckx
-## Version: v1.1.0
+## Version: v1.1.1
 ## SavedVariables: SGTPricingDB
 ## Dependencies: SGT_Core
 ## OptionalDeps: Ace3, TradeSkillMaster, Auctionator
