@@ -1,12 +1,13 @@
-## Interface: 100007
+## Interface: 100105
 ## Title: SGT Pricing
 ## Notes: Provides Pricing sources to the rest 
 ## Author: Stroeckx
-## Version: v1.1.2
+## Version: v1.1.3
 ## SavedVariables: SGTPricingDB
 ## Dependencies: SGT_Core
 ## OptionalDeps: Ace3, TradeSkillMaster, Auctionator
 ## X-Embeds: Ace3
+## IconTexture: Interface\AddOns\SGT_Core\SGT_logo
 
 Locales\Locales.xml
 
