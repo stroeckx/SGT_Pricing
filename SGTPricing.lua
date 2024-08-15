@@ -20,8 +20,8 @@ function SGTPricing:OnInitialize()
         },
     });
 
-    SGTPricing.IsTSMLoaded = select(1,IsAddOnLoaded(SGTPricing.tsmNameString));
-    SGTPricing.IsAuctionatorLoaded = select(1,IsAddOnLoaded(SGTPricing.auctionatorNameString));
+    SGTPricing.IsTSMLoaded = select(1,C_AddOns.IsAddonLoaded(SGTPricing.tsmNameString));
+    SGTPricing.IsAuctionatorLoaded = select(1,C_AddOns.IsAddonLoaded(SGTPricing.auctionatorNameString));
     if(SGTPricing.IsTSMLoaded == false and SGTPricing.IsAuctionatorLoaded == false) then 
         message(SGTPricing.L["Error_PriceSourceRequired"]);
         return;
