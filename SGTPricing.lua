@@ -4,7 +4,7 @@ SGTPricing.L = LibStub("AceLocale-3.0"):GetLocale("SGTPricing");
 --Variables start
 SGTPricing.majorVersion = 1;
 SGTPricing.subVersion = 1;
-SGTPricing.minorVersion = 5;
+SGTPricing.minorVersion = 6;
 SGTPricing.tsmNameString = "TradeSkillMaster";
 SGTPricing.auctionatorNameString = "Auctionator";
 --Variables end
@@ -20,8 +20,8 @@ function SGTPricing:OnInitialize()
         },
     });
 
-    SGTPricing.IsTSMLoaded = select(1,IsAddOnLoaded(SGTPricing.tsmNameString));
-    SGTPricing.IsAuctionatorLoaded = select(1,IsAddOnLoaded(SGTPricing.auctionatorNameString));
+    SGTPricing.IsTSMLoaded = select(1,C_AddOns.IsAddOnLoaded(SGTPricing.tsmNameString));
+    SGTPricing.IsAuctionatorLoaded = select(1,C_AddOns.IsAddOnLoaded(SGTPricing.auctionatorNameString));
     if(SGTPricing.IsTSMLoaded == false and SGTPricing.IsAuctionatorLoaded == false) then 
         message(SGTPricing.L["Error_PriceSourceRequired"]);
         return;
