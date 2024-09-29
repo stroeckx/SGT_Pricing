@@ -4,7 +4,7 @@ SGTPricing.L = LibStub("AceLocale-3.0"):GetLocale("SGTPricing");
 --Variables start
 SGTPricing.majorVersion = 1;
 SGTPricing.subVersion = 1;
-SGTPricing.minorVersion = 6;
+SGTPricing.minorVersion = 7;
 SGTPricing.tsmNameString = "TradeSkillMaster";
 SGTPricing.auctionatorNameString = "Auctionator";
 --Variables end
@@ -31,7 +31,7 @@ function SGTPricing:OnInitialize()
         SGTPricing.db.profile.settings.priceSource = SGTPricing.auctionatorNameString;
     end
 	SGTPricing:RegisterChatCommand("tstp", "tst");
-    SGTCore:AddTabWithFrame("SGTPricing", SGTPricing.L["Pricing"], SGTPricing.L["Pricing"], SGTPricing:GetVersionString(), SGTPricing.OnCraftCostFrameCreated);
+    SGTCore:AddTabWithFrame("SGTPricing", SGTPricing.L["Pricing"], SGTPricing.L["Pricing"], SGTPricing:GetVersionString(), SGTPricing.OnPricingFrameCreated);
 end
 
 function SGTPricing:GetVersionString()
@@ -42,11 +42,12 @@ function SGTPricing:tst()
     --print(SGTPricing:GetCurrentAuctionPrice("2840"));
 end
 
-function SGTPricing:OnCraftCostFrameCreated()
+function SGTPricing:OnPricingFrameCreated()
     local heightOffset = -5 
-    local craftCostFrame = SGTCore:GetTabFrame("SGTPricing");
-    local ss = craftCostFrame.scrollframe.scrollchild;
-    local craftCostDescription = SGTCore:AddAnchoredFontString("SGTPricingDescriptionText", ss, craftCostFrame, 5, heightOffset, SGTPricing.L["SGTPricingDescription"], craftCostFrame);
+    local pricingFrame = SGTCore:GetTabFrame("SGTPricing");
+    local scrollchild = pricingFrame.scrollframe.scrollchild;
+	local anchor = SGTCore:AddInitialAnchor("Anchor", scrollframe, pricingFrame);
+    local pricingDescription = SGTCore:AddAnchoredFontString("SGTPricingDescriptionText", scrollchild, anchor, 5, heightOffset, SGTPricing.L["SGTPricingDescription"]);
     heightOffset = heightOffset - 20;
     local knownSources = {};
     if(SGTPricing.IsTSMLoaded == true) then
@@ -55,7 +56,7 @@ function SGTPricing:OnCraftCostFrameCreated()
     if(SGTPricing.IsAuctionatorLoaded == true) then
         table.insert(knownSources, SGTPricing.auctionatorNameString);
     end
-    SGTCore:AddDropdownMenu("SGTPriceSourceDropdown", ss, craftCostDescription, -5, 200, SGTPricing.L["PriceSource"] .. SGTPricing.db.profile.settings.priceSource, knownSources, SGTPricing.OnPriceSourceChanged, SGTPricing.GetCurrentPriceSourceSetting)
+    SGTCore:AddDropdownMenu("SGTPriceSourceDropdown", scrollchild, pricingDescription, -5, 200, SGTPricing.L["PriceSource"] .. SGTPricing.db.profile.settings.priceSource, knownSources, SGTPricing.OnPriceSourceChanged, SGTPricing.GetCurrentPriceSourceSetting)
 end
 
 function SGTPricing:GetCurrentPriceSourceSetting()
