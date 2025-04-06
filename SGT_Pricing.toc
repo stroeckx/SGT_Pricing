@@ -1,8 +1,8 @@
-## Interface: 110007
+## Interface: 110100
 ## Title: SGT Pricing
 ## Notes: Provides Pricing sources to the rest 
 ## Author: Stroeckx
-## Version: v1.1.9
+## Version: v1.1.10
 ## SavedVariables: SGTPricingDB
 ## Dependencies: SGT_Core
 ## OptionalDeps: Ace3, TradeSkillMaster, Auctionator
