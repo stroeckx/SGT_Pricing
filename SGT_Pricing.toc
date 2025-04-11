@@ -2,12 +2,25 @@
 ## Title: SGT Pricing
 ## Notes: Provides Pricing sources to the rest 
 ## Author: Stroeckx
-## Version: v1.1.10
+## Version: v1.1.11
 ## SavedVariables: SGTPricingDB
 ## Dependencies: SGT_Core
 ## OptionalDeps: Ace3, TradeSkillMaster, Auctionator
 ## X-Embeds: Ace3
 ## IconTexture: Interface\AddOns\SGT_Core\SGT_logo
+
+## Group: SGT_Core
+## Category-enUS: Professions
+## Category-deDE: Berufe
+## Category-esES: Profesiones
+## Category-esMX: Profesiones
+## Category-frFR: Métiers
+## Category-itIT: Professioni
+## Category-koKR: 전문 기술
+## Category-ptBR: Profissões
+## Category-ruRU: Профессии
+## Category-zhCN: 专业
+## Category-zhTW: 專業技能
 
 Locales\Locales.xml
 

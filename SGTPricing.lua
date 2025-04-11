@@ -4,7 +4,7 @@ SGTPricing.L = LibStub("AceLocale-3.0"):GetLocale("SGTPricing");
 --Variables start
 SGTPricing.majorVersion = 1;
 SGTPricing.subVersion = 1;
-SGTPricing.minorVersion = 10;
+SGTPricing.minorVersion = 11;
 SGTPricing.tsmNameString = "TradeSkillMaster";
 SGTPricing.auctionatorNameString = "Auctionator";
 --Variables end
@@ -26,20 +26,14 @@ function SGTPricing:OnInitialize()
         message(SGTPricing.L["Error_PriceSourceRequired"]);
         return;
     end
-    --SGTPricing.db.profile.settings.priceSource = SGTPricing.db.profile.settings.priceSource:gsub("%s+", "");
     if(SGTPricing.IsTSMLoaded == false and SGTPricing.IsAuctionatorLoaded == true) then
         SGTPricing.db.profile.settings.priceSource = SGTPricing.auctionatorNameString;
     end
-	SGTPricing:RegisterChatCommand("tstp", "tst");
     SGTCore:AddTabWithFrame("SGTPricing", SGTPricing.L["Pricing"], SGTPricing.L["Pricing"], SGTPricing:GetVersionString(), SGTPricing.OnPricingFrameCreated);
 end
 
 function SGTPricing:GetVersionString()
     return tostring(SGTPricing.majorVersion) .. "." .. tostring(SGTPricing.subVersion) .. "." .. tostring(SGTPricing.minorVersion);
-end
-
-function SGTPricing:tst()
-    --print(SGTPricing:GetCurrentAuctionPrice("2840"));
 end
 
 function SGTPricing:OnPricingFrameCreated()
