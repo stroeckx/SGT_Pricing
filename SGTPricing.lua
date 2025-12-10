@@ -4,7 +4,7 @@ SGTPricing.L = LibStub("AceLocale-3.0"):GetLocale("SGTPricing");
 --Variables start
 SGTPricing.majorVersion = 1;
 SGTPricing.subVersion = 1;
-SGTPricing.minorVersion = 14;
+SGTPricing.minorVersion = 15;
 SGTPricing.tsmNameString = "TradeSkillMaster";
 SGTPricing.auctionatorNameString = "Auctionator";
 --Variables end
